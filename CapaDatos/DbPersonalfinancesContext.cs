@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using CapaEntidad;
 
-namespace CapaEntidad;
 
 public partial class DbPersonalfinancesContext : DbContext
 {
@@ -21,7 +21,7 @@ public partial class DbPersonalfinancesContext : DbContext
 
     public virtual DbSet<DetalleAhorro> DetalleAhorros { get; set; }
 
-    public virtual DbSet<DetalleDeudum> DetalleDeuda { get; set; }
+    public virtual DbSet<DetalleDeuda> DetalleDeuda { get; set; }
 
     public virtual DbSet<DetallePresupuesto> DetallePresupuestos { get; set; }
 
@@ -33,9 +33,7 @@ public partial class DbPersonalfinancesContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=LAPTOP-2M1PFTDM\\SQLEXPRESS;Database=DB_PERSONALFINANCES;Integrated Security=True;Encrypt=False");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -85,7 +83,7 @@ public partial class DbPersonalfinancesContext : DbContext
                 .HasConstraintName("FK__DETALLE_A__IdAho__4AB81AF0");
         });
 
-        modelBuilder.Entity<DetalleDeudum>(entity =>
+        modelBuilder.Entity<DetalleDeuda>(entity =>
         {
             entity.HasKey(e => e.IdDetalleDeuda).HasName("PK__DETALLE___BBE9846B0B0DEC03");
 
