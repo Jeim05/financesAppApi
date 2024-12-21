@@ -113,9 +113,9 @@ public partial class DbPersonalfinancesContext : DbContext
                 .HasMaxLength(25)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.DetallePresupuestos)
-                .HasForeignKey(d => d.IdCategoria)
-                .HasConstraintName("FK__DETALLE_P__IdCat__5812160E");
+            //entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.DetallePresupuestos)
+            //    .HasForeignKey(d => d.IdCategoria)
+            //    .HasConstraintName("FK__DETALLE_P__IdCat__5812160E");
 
             entity.HasOne(d => d.IdPresupuestoNavigation).WithMany(p => p.DetallePresupuestos)
                 .HasForeignKey(d => d.IdPresupuesto)
@@ -135,9 +135,9 @@ public partial class DbPersonalfinancesContext : DbContext
             entity.Property(e => e.MontoInicial).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.MontoPendiente).HasColumnType("decimal(10, 2)");
 
-            entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Deuda)
-                .HasForeignKey(d => d.IdCategoria)
-                .HasConstraintName("FK__DEUDA__IdCategor__4E88ABD4");
+            //entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Deuda)
+            //    .HasForeignKey(d => d.IdCategoria)
+            //    .HasConstraintName("FK__DEUDA__IdCategor__4E88ABD4");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Deuda)
                 .HasForeignKey(d => d.IdUsuario)
@@ -179,13 +179,13 @@ public partial class DbPersonalfinancesContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Transaccions)
-                .HasForeignKey(d => d.IdCategoria)
-                .HasConstraintName("FK__TRANSACCI__IdCat__3C69FB99");
+            //entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Transaccions)
+            //    .HasForeignKey(d => d.IdCategoria)
+            //    .HasConstraintName("FK__TRANSACCI__IdCat__3C69FB99");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Transaccions)
-                .HasForeignKey(d => d.IdUsuario)
-                .HasConstraintName("FK__TRANSACCI__IdUsu__3D5E1FD2");
+            //entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Transaccions)
+            //    .HasForeignKey(d => d.IdUsuario)
+            //    .HasConstraintName("FK__TRANSACCI__IdUsu__3D5E1FD2");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
